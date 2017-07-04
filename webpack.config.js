@@ -20,18 +20,21 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
+                test: /\.css$/,
                 use: ExtractTextPlugin.extract({
-                    use: 'css-loader',
-                    publicPath: 'dist'
-                }),
-                test: /\.css$/
+                    fallback: 'style-loader',
+                    use: [
+                        { loader: 'css-loader', options: { importLoaders: 1 } },
+                        'postcss-loader'
+                    ]
+                })
             },
             {
                 test: /\.(jpg|png|gif|jpeg|svg)$/,
                 use: {
                     loader: 'file-loader',
                     options: {
-                        limit: 100000
+                        limit: 2048,
                     }
                 }
             },
@@ -48,6 +51,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: 'src/index.html'
         }),
-        new ExtractTextPlugin('style.css')
+        new ExtractTextPlugin({
+            filename: '[name].[contenthash].css'
+        })
     ]
 }

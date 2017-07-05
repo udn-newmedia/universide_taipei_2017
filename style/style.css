@@ -1,6 +1,7 @@
 
 canvas{
     width: 100%;
+    transition: opacity 0.7s ease;
 }
 
 #cover-v{
@@ -49,7 +50,7 @@ h1{
 }
 
 .content-w{
-    height: 100vh;
+    height: 0vh;
 }
 
 h2{
@@ -60,7 +61,23 @@ h2{
     background-color: #FFFFFF;
     color: #000000;
     padding: 15px 20px;
-    border: solid 10px #FFE400;
+    border: solid 5px #FFE400;
+}
+
+.back{
+    position: absolute;
+    top: 50%;
+    transition: opacity 0.7s ease;
+    opacity: 0;
+}
+
+#b-title{
+    position: absolute;
+    top: 20%;
+    color: white;
+    font-size: 23px;
+    width: 100%;
+    text-align: center;
 }
 
 @media screen and (max-width: 768px){
@@ -70,7 +87,7 @@ h2{
 
 	#cover-v>h1{
         width: calc(100% - 40px); 
-        border: solid 10px #FFE400;
+        border: solid 5px #FFE400;
         padding: 10px 20px;
         font-size: 45px;
 	}

@@ -20,21 +20,22 @@ module.exports = {
                 exclude: /node_modules/
             },
             {
-                test: /\.css$/,
-                use: ExtractTextPlugin.extract({
+               use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
                         { loader: 'css-loader', options: { importLoaders: 1 } },
                         'postcss-loader'
                     ]
-                })
+                }),
+                test: /\.css$/
             },
             {
                 test: /\.(jpg|png|gif|jpeg|svg)$/,
                 use: {
                     loader: 'file-loader',
                     options: {
-                        limit: 2048,
+                        limit: 100000,
+                        name: '[hash].[ext]'
                     }
                 }
             },

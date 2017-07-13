@@ -56,34 +56,42 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
                 (0, _jquery2.default)('#cover-v h1').css('transform', 'translate(0, 0)');
                 (0, _jquery2.default)('#cover-v hr').css('width', '100%');
             }
-            if (index == 2) {}
+            if (index == 2) {
+                (0, _jquery2.default)('#cover-title').css('opacity', 0);
+                (0, _jquery2.default)('#cover-title').css('transform', 'translate(0, 50px)');
+                (0, _jquery2.default)('#cover-subtitle').css('opacity', 0);
+                (0, _jquery2.default)('#cover-subtitle').css('transform', 'translate(0, 50px)');
+                (0, _jquery2.default)('#cover-v h1').css('opacity', 0);
+                (0, _jquery2.default)('#cover-v h1').css('transform', 'translate(0, 50px)');
+                (0, _jquery2.default)('#cover-v hr').css('width', '0');
+                (0, _jquery2.default)('#section-3 .box-container').css('transform', 'translate(0, 50px)');
+            }
             if (index == 3) {
                 (0, _jquery2.default)('#section-3 .box-container').css('opacity', 1);
+                (0, _jquery2.default)('#section-3 .box-container').css('transform', 'translate(0, 0)');
+                (0, _jquery2.default)('#section-4 .popup').css('transform', 'translate(0, 100px)');
             }
 
             if (index == 4) {
-                (0, _jquery2.default)('#section-4 .content').css('transform', 'translate(0, 0)');
+                (0, _jquery2.default)('#section-3 .box-container').css('transform', 'translate(0, 50px)');
                 (0, _jquery2.default)('#movie-4').get(0).play();
+                (0, _jquery2.default)('#section-5 .popup').css('transform', 'translate(0, 100px)');
             }
             if (index == 5) {
                 (0, _jquery2.default)('#movie-5').get(0).play();
+                (0, _jquery2.default)('#section-4 .popup').css('transform', 'translate(0, 100px)');
+                (0, _jquery2.default)('#section-6 .popup').css('transform', 'translate(0, 100px)');
             }
             if (index == 6) {
                 (0, _jquery2.default)('#movie-6').get(0).play();
+                (0, _jquery2.default)('#section-5 .popup').css('transform', 'translate(0, 100px)');
             }
         },
         onLeave: function onLeave(index, nextIndex, direction) {
             console.log(index, nextIndex, direction);
+
             if (index == 1 && direction == 'down') {}
-            if (index == 1) {
-                (0, _jquery2.default)('#cover-title').css('opacity', 0);
-                (0, _jquery2.default)('#cover-title').css('transform', 'translate(0, -50px)');
-                (0, _jquery2.default)('#cover-subtitle').css('opacity', 0);
-                (0, _jquery2.default)('#cover-subtitle').css('transform', 'translate(0, -50px)');
-                (0, _jquery2.default)('#cover-v h1').css('opacity', 0);
-                (0, _jquery2.default)('#cover-v h1').css('transform', 'translate(0, -50px)');
-                (0, _jquery2.default)('#cover-v hr').css('width', '0');
-            }
+            if (index == 1) {}
             if (index == 2 && direction == 'up') {}
             if (index == 2 && direction == 'down') {
                 ctx.clearRect(0, 0, 720, 1280);
@@ -97,20 +105,15 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
                 (0, _jquery2.default)('#section-3 .box-container').css('opacity', 0);
                 (0, _jquery2.default)('#section-4 .popup').css('transform', 'translate(0, 0)');
             }
-            if (index == 4 && direction == 'up') {
-                (0, _jquery2.default)('#section-4 .popup').css('transform', 'translate(0, 50px)');
-            }
             if (index == 4) {
                 (0, _jquery2.default)('#section-5 .popup').css('transform', 'translate(0, 0)');
             }
-            if (index == 5 && direction == 'up') {
-                (0, _jquery2.default)('#section-5 .popup').css('transform', 'translate(0, 50px)');
-            }
             if (index == 5) {
                 (0, _jquery2.default)('#section-6 .popup').css('transform', 'translate(0, 0)');
+                (0, _jquery2.default)('#section-4 .popup').css('transform', 'translate(0, 0)');
             }
-            if (index == 6 && direction == 'up') {
-                (0, _jquery2.default)('#section-6 .popup').css('transform', 'translate(0, 50px)');
+            if (index == 6) {
+                (0, _jquery2.default)('#section-5 .popup').css('transform', 'translate(0, 0)');
             }
         }
     });

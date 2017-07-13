@@ -22,7 +22,7 @@
 }
 
 body{
-	background-image: url(ec605a388f6ea9e42cca0226e41b6977.jpg);
+	/* background-image: url('../assets/bg.jpg'); */
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 100% auto;
@@ -36,66 +36,83 @@ body{
     color: #FFFFFF;
 }
 
-.fullpage-wrapper {
-	width: 100%!important; 
-	-webkit-transform: none!important; 
-	        transform: none!important;  
+#fixed-back{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	z-index: -2;
+	-webkit-transition: -webkit-filter 1s ease;
+	transition: -webkit-filter 1s ease;
+	transition: filter 1s ease;
+	transition: filter 1s ease, -webkit-filter 1s ease;
+	background: #000000;
 }
 
+/* 
+  .fullpage-wrapper {
+	width: 100%!important; 
+	transform: none!important;  
+} */
+
 .fp-section {
-	 width: 100%!important; 
+	  /* width: 100%!important; 
 	 position: absolute; 
 	left: 0;
-	top: 0; 
-	visibility: hidden; 
+	top: 0;  */
+	/* visibility: hidden;   */
 	opacity: 0;
-	z-index: 0; 
+	/* z-index: 0;  */
 }
 
 .fp-section.active {
-	visibility: visible; 
+	/* visibility: visible;  */
 	opacity: 1;
-    z-index: 1;
+    /* z-index: 1; */
 }
 
-h2{
+.box-container h2{
 	margin-top: 0;
 }
 
-video{
+video, canvas{
     width: 100%;
 }
 
-#section-2{
-	background-color: rgba(0, 0, 0, 0.8);
+.full{
+    height: 100vh;
 }
 
-#section-3{
-	background-color: rgba(0, 0, 0, 1);
+#section-3 .full{
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
-#section-4{
-	background-color: rgba(0, 0, 0, 1);
-}
-
-#section-5{
-	background-color: rgba(0, 0, 0, 1);
-}
-
-#section-6{
-	background-color: rgba(0, 0, 0, 1);
-}
-
-.yellow-back{
+.back{
     width: 100%;
-    background-color: #FFE400;
-    height: 0;
+    height: 100vh;
     position: absolute;
     bottom: 0;
     left: 0;
     z-index: -1;
-    -webkit-transition: height 0.3s ease;
-    transition: height 0.3s ease;
+    -webkit-transition: all 0.7s ease;
+    transition: all 0.7s ease;   
+}
+
+/* .gray-back{
+    background: rgba(0, 0, 0, 0.8);
+} */
+
+.yellow-back{
+    background-color: #FFE400;
+    height: 0;
 }
 
 .box-container{
@@ -103,7 +120,6 @@ video{
     width: calc(100% - 40px);
     padding: 40px 40px;
     margin: 0 auto;
-    opacity: 0;
     -webkit-transition: opacity 0.7s ease;
     transition: opacity 0.7s ease;
 }

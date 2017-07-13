@@ -31,25 +31,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     var canvas = document.getElementById('back-1');
     var ctx = canvas.getContext('2d');
 
-    var yellow = (0, _animejs2.default)({
-        targets: '#section-3 .back',
-        height: '100vh',
-        duration: 700,
-        loop: false,
-        autoplay: false,
-        easing: 'linear'
-    });
-
-    var gray = (0, _animejs2.default)({
-        targets: '#section-2 .back',
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        opacity: 0.8,
-        duration: 700,
-        loop: false,
-        autoplay: false,
-        easing: 'linear'
-    });
-
     (0, _jquery2.default)('#back-1').prop('width', 720);
     (0, _jquery2.default)('#back-1').prop('height', 1280);
 
@@ -76,8 +57,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
                 (0, _jquery2.default)('#cover-v hr').css('width', '100%');
             }
             if (index == 2) {}
+            if (index == 3) {
+                (0, _jquery2.default)('#section-3 .box-container').css('opacity', 1);
+            }
 
             if (index == 4) {
+                (0, _jquery2.default)('#section-4 .content').css('transform', 'translate(0, 0)');
                 (0, _jquery2.default)('#movie-4').get(0).play();
             }
             if (index == 5) {
@@ -89,9 +74,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
         },
         onLeave: function onLeave(index, nextIndex, direction) {
             console.log(index, nextIndex, direction);
-            if (index == 1 && direction == 'down') {
-                gray.play();
-            }
+            if (index == 1 && direction == 'down') {}
             if (index == 1) {
                 (0, _jquery2.default)('#cover-title').css('opacity', 0);
                 (0, _jquery2.default)('#cover-title').css('transform', 'translate(0, -50px)');
@@ -101,22 +84,34 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
                 (0, _jquery2.default)('#cover-v h1').css('transform', 'translate(0, -50px)');
                 (0, _jquery2.default)('#cover-v hr').css('width', '0');
             }
-            if (index == 2 && direction == 'up') {
-                gray.seek(0);
-            }
+            if (index == 2 && direction == 'up') {}
             if (index == 2 && direction == 'down') {
                 ctx.clearRect(0, 0, 720, 1280);
-                yellow.play();
-                // ctx.fillStyle = '#FFE400'
-                // ctx.fillRect(0, 0, 720, 1280)
+                (0, _jquery2.default)('#section-3 .yellow-back').css('height', '100vh');
             }
             if (index == 3 && direction == 'up') {
-                yellow.seek(0);
                 ctx.drawImage(img, 0, 0, 720, 1280, 0, 0, 720, 1280);
-                // $('#section-3 .yellow-back').css('height', 0)
-                // $('#section-3 .box-container').css('opacity', 0)
+                (0, _jquery2.default)('#section-3 .yellow-back').css('height', 0);
             }
-            if (index == 3) {}
+            if (index == 3) {
+                (0, _jquery2.default)('#section-3 .box-container').css('opacity', 0);
+                (0, _jquery2.default)('#section-4 .popup').css('transform', 'translate(0, 0)');
+            }
+            if (index == 4 && direction == 'up') {
+                (0, _jquery2.default)('#section-4 .popup').css('transform', 'translate(0, 50px)');
+            }
+            if (index == 4) {
+                (0, _jquery2.default)('#section-5 .popup').css('transform', 'translate(0, 0)');
+            }
+            if (index == 5 && direction == 'up') {
+                (0, _jquery2.default)('#section-5 .popup').css('transform', 'translate(0, 50px)');
+            }
+            if (index == 5) {
+                (0, _jquery2.default)('#section-6 .popup').css('transform', 'translate(0, 0)');
+            }
+            if (index == 6 && direction == 'up') {
+                (0, _jquery2.default)('#section-6 .popup').css('transform', 'translate(0, 50px)');
+            }
         }
     });
 

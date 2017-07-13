@@ -15,7 +15,6 @@ $(document).ready(function(){
         navigation: false,    	
         scrollOverflow : true,
     	afterLoad: function(anchorLink, index){
-    		$('body').css('background-image', 'none')
             if(index == 1){
                 $('#cover-title').css('opacity', 1)
                 $('#cover-title').css('transform', 'translate(0, 0)')
@@ -24,10 +23,6 @@ $(document).ready(function(){
                 $('#cover-v h1').css('opacity', 1)
                 $('#cover-v h1').css('transform', 'translate(0, 0)')
                 $('#cover-v hr').css('width', '100%')
-                $('body').css('background-image', 'url("assets/bg.jpg")')
-            }
-            if(index == 2){
-                $('body').css('background-image', 'url("assets/bg.jpg")')
             }
             if(index == 3){
                 $('#section-3 .yellow-back').css('height', '100vh')
@@ -55,9 +50,6 @@ $(document).ready(function(){
                 $('#cover-v h1').css('opacity', 0)
                 $('#cover-v h1').css('transform', 'translate(0, -50px)')
                 $('#cover-v hr').css('width', '0')               
-            }
-            if(index == 2){
-                $('body').css('background-image', 'url("assets/bg.jpg")')
             }
             if(index == 3){
                 $('#section-3 .yellow-back').css('height', 0)

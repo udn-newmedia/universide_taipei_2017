@@ -73,7 +73,7 @@ video, canvas{
 
 .popup{
     transition: all 0.7s ease;
-    transform: translate(0, 50px);
+    transform: translate(0, 100px);
 }
 
 #section-3 .full{
@@ -107,7 +107,8 @@ video, canvas{
     padding: 40px 40px;
     margin: 0 auto;
     opacity: 0;
-    transition: opacity 0.7s ease;
+    transform: translate(0, 50px);
+    transition: all 0.7s ease;
 }
 
 @media screen and (max-width: 768px){

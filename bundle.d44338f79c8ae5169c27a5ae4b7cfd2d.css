@@ -1,6 +1,6 @@
 
 #cover-v{
-	width: calc(100% - 80px);
+	width: calc(100% - 40px);
 	height: 100vh;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -90,7 +90,7 @@ video, canvas{
             transform: translate(0, 100px);
 }
 
-#section-3 .full{
+.flex-layout{
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -122,6 +122,10 @@ video, canvas{
     height: 0;
 }
 
+.yellow-back-2{
+    background-color: #FFE400;
+}
+
 .box-container{
     background-color: #FFFFFF;
     width: calc(100% - 40px);
@@ -134,9 +138,30 @@ video, canvas{
     transition: all 0.7s ease;
 }
 
+.quote-contain{
+    color: #6A3906;
+    border-top-color: #6A3906;
+    border-bottom-color: #6A3906;
+}
+
+#editor{
+    color: #000000;
+    padding: 0;
+    border-bottom: none;
+}
+
 @media screen and (max-width: 768px){
+    h2{
+        margin-top: 32px;
+    }
+    p{
+        line-height: 30px;
+    }
+    .f-video-contain{
+        margin-bottom: 32px;
+    }
     #cover-title{
-        font-size: 36px;
+        font-size: 26px;
         -webkit-transition: all 0.7s ease;
         transition: all 0.7s ease;
         opacity: 0;
@@ -167,7 +192,6 @@ video, canvas{
 
 	#cover-v h1{
         padding: 0;
-        font-size: 50px;
         -webkit-transition: all 0.7s ease;
         transition: all 0.7s ease;
         opacity: 0;
@@ -176,13 +200,17 @@ video, canvas{
     }
     
     #cover-subtitle{
-        font-size: 50px;
+        font-size: 40px;
         margin-top: -17px; 
         -webkit-transition: all 0.7s ease; 
         transition: all 0.7s ease;
         opacity: 0;
         -webkit-transform: translate(0, 50px);
                 transform: translate(0, 50px);
+    }
+
+    .share-block{
+        margin-top: 32px;
     }
 
 }

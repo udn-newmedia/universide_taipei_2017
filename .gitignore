@@ -60,5 +60,5 @@ typings/
 # webpack
 
 # video
-.mp4
+*.mp4
 

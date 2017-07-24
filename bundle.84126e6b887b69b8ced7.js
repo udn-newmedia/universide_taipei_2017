@@ -43,7 +43,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
     var w = (0, _jquery2.default)(window).width();
     var h = (0, _jquery2.default)(window).height();
 
-    (0, _jquery2.default)('.f-video-contain').css('height', 600 * w / h + 'px');
+    // $('.f-video-contain').css('height', 600*w/h + 'px')
 
     (0, _jquery2.default)('#fullpage').fullpage({
         navigation: false,

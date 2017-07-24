@@ -2,7 +2,6 @@ import '../style/style.css'
 import $ from 'jquery'
 import 'lazysizes'
 import 'fullpage.js'
-import anime from 'animejs'
 import imgBg from '../assets/bg.jpg'
 
 $(document).ready(function(){

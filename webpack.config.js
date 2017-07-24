@@ -6,7 +6,8 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
     entry: {
-        bundle: './src/index.js'
+        bundle: './src/index.js',
+        gymnastics: './src/gymnastics.js'
     },
     output: {
         path: path.join(__dirname, 'dist'),
@@ -50,7 +51,14 @@ module.exports = {
             }            
         }),
         new HtmlWebpackPlugin({
-            template: 'src/index.html'
+            template: 'src/index.html',
+            filename: 'index.html',
+            chunks: ['vendor', 'bundle']
+        }),
+        new HtmlWebpackPlugin({
+            template: 'src/gymnastics.html',
+            filename: 'gymnastics.html',
+            chunks: ['vendor', 'gymnastics']
         }),
         new ExtractTextPlugin({
             filename: '[name].[contenthash].css'

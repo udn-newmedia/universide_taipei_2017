@@ -1,26 +1,30 @@
 webpackJsonp([0],[
-/* 0 */,
-/* 1 */
+/* 0 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 1 */,
+/* 2 */,
+/* 3 */,
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(2);
+__webpack_require__(0);
 
-var _jquery = __webpack_require__(0);
+var _jquery = __webpack_require__(1);
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
-__webpack_require__(4);
+__webpack_require__(2);
 
-__webpack_require__(5);
+__webpack_require__(3);
 
-var _animejs = __webpack_require__(6);
-
-var _animejs2 = _interopRequireDefault(_animejs);
-
-var _bg = __webpack_require__(7);
+var _bg = __webpack_require__(6);
 
 var _bg2 = _interopRequireDefault(_bg);
 
@@ -47,9 +51,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
     (0, _jquery2.default)('#fullpage').fullpage({
         navigation: false,
-        scrollOverflow: false,
+        scrollOverflow: true,
         afterLoad: function afterLoad(anchorLink, index) {
+
             if (index == 1) {
+                console.log(index);
                 (0, _jquery2.default)('#cover-title').css('opacity', 1);
                 (0, _jquery2.default)('#cover-title').css('transform', 'translate(0, 0)');
                 (0, _jquery2.default)('#cover-subtitle').css('opacity', 1);
@@ -223,20 +229,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 });
 
 /***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 3 */,
-/* 4 */,
 /* 5 */,
-/* 6 */,
-/* 7 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__.p + "ec605a388f6ea9e42cca0226e41b6977.jpg";
 
 /***/ })
-],[1]);
+],[4]);

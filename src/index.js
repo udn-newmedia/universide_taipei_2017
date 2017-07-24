@@ -22,7 +22,7 @@ $(document).ready(function(){
     const w = $(window).width()
     const h = $(window).height()
 
-    $('.f-video-contain').css('height', 600*w/h + 'px')
+    // $('.f-video-contain').css('height', 600*w/h + 'px')
     
     $('#fullpage').fullpage({
         navigation: false,    	

@@ -26,9 +26,11 @@ $(document).ready(function(){
     
     $('#fullpage').fullpage({
         navigation: false,    	
-        scrollOverflow : false,
+        scrollOverflow : true,
     	afterLoad: function(anchorLink, index){
+            
             if(index == 1){
+                console.log(index)
                 $('#cover-title').css('opacity', 1)
                 $('#cover-title').css('transform', 'translate(0, 0)')
                 $('#cover-subtitle').css('opacity', 1)

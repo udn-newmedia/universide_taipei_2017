@@ -107,12 +107,13 @@ video, canvas{
 
 .box-container{
     background-color: #FFFFFF;
-    width: calc(100% - 40px);
+    width: calc(100% - 70px);
     padding: 40px 40px;
     margin: 0 auto;
     opacity: 0;
     transform: translate(0, 50px);
     transition: all 0.7s ease;
+    box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.1);
 }
 
 .quote-contain{

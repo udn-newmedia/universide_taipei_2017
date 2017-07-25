@@ -31,6 +31,10 @@ body{
     color: #FFE400;
 }
 
+.orange{
+    color: #E95513;
+}
+
 .white{
     color: #FFFFFF;
 }
@@ -78,6 +82,11 @@ video, canvas{
     width: 100%;
 }
 
+video{
+    -o-object-fit: contain;
+       object-fit: contain;
+}
+
 .full{
     height: 100vh;
 }
@@ -117,12 +126,21 @@ video, canvas{
 }
 
 .yellow-back{
-    background-color: #ffCE00;
+    background-color: #FFCE00;
     height: 0;
 }
 
 .yellow-back-2{
     background-color: #FFCE00;
+}
+
+.orange-back{
+    background-color: #EA7526;
+    height: 0;
+}
+
+.orange-back-2{
+    background-color: #EA7526;
 }
 
 .box-container{
@@ -139,6 +157,18 @@ video, canvas{
             box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.1);
 }
 
+.box-container-c{
+    background-color: #FFFFFF;
+    width: calc(100% - 70px);
+    padding: 40px 40px;
+    margin: 0 auto;
+    opacity: 0;
+    -webkit-transition: opacity 0.7s ease;
+    transition: opacity 0.7s ease;
+    -webkit-box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 3px 7px 0 rgba(0, 0, 0, 0.1);
+}
+
 .quote-contain{
     color: #6A3906;
     border-top-color: #6A3906;
@@ -149,6 +179,38 @@ video, canvas{
     color: #000000;
     padding: 0;
     border-bottom: none;
+}
+
+#video-state-contain{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+}
+
+#video-state{
+    width: 35px;
+    height: 35px; 
+    opacity: 0;
+    -webkit-transition: opacity 0.7s ease;
+    transition: opacity 0.7s ease;
+}
+
+#video-state-contain .fa-play{
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    font-size: 19px;
+    opacity: 0;
+    color: #FFA31F;
+    -webkit-transition: opacity 0.7s ease;
+    transition: opacity 0.7s ease;
+}
+
+.ab-center{
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 @media screen and (max-width: 768px){
@@ -215,3 +277,5 @@ video, canvas{
     }
 
 }
+
+/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJidW5kbGUuZWRiNjg2Mzg1NzljZmVjOGIxN2RiMGIzMzI5ZDhmYTcuY3NzIiwic291cmNlUm9vdCI6IiJ9*/

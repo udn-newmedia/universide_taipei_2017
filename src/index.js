@@ -118,15 +118,6 @@ $(document).ready(function(){
         onLeave: function(index, nextIndex, direction){
             console.log(index, nextIndex, direction)
             
-            if(index == 1 && direction == 'down'){
-               
-            }
-            if(index == 1){
-                
-                
-            }
-            if(index == 2 && direction == 'up'){
-            }
             if(index == 2 && direction == 'down'){
                 ctx.clearRect(0, 0, 720, 1280)
                 $('#section-3 .yellow-back').css('height', '100vh')

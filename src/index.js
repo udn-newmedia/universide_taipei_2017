@@ -6,6 +6,8 @@ import imgBg from '../assets/bg.jpg'
 
 $(document).ready(function(){
 
+    var bar_witdh = 0
+
     var canvas = document.getElementById('back-1');
     var ctx = canvas.getContext('2d');
 
@@ -22,12 +24,34 @@ $(document).ready(function(){
     const h = $(window).height()
 
     // $('.f-video-contain').css('height', 600*w/h + 'px')
+
+    $('#nav-icon').click(function(){
+        console.log(123)
+        $(this).toggleClass('open')
+        $('#pannel').toggleClass('open')
+        $('#head').toggleClass('open')
+    })
+
+    $('#page-down').click(function(){
+        $.fn.fullpage.moveSectionDown()
+    })
     
+    $('#comment-pannel .fa').click(function(){
+        $('#comment-pannel').toggleClass('open')
+        $('#msg').toggleClass('close')
+    })
+
+    $('#msg').click(function(){
+        $('#msg').toggleClass('close')
+        $('#comment-pannel').toggleClass('open')
+    })
+
     $('#fullpage').fullpage({
         navigation: false,    	
         scrollOverflow : true,
     	afterLoad: function(anchorLink, index){
-            
+            bar_witdh = (index-1) / 17 * 100
+            $('#indicator-bar').css('width', bar_witdh+'%')
             if(index == 1){
                 console.log(index)
                 $('#cover-title').css('opacity', 1)
@@ -47,6 +71,7 @@ $(document).ready(function(){
                 $('#cover-v h1').css('transform', 'translate(0, 50px)')
                 $('#cover-v hr').css('width', '0')
                 $('#section-3 .box-container').css('transform', 'translate(0, 50px)')
+                $('#page-down').css('opacity', 1)
             }
             if(index == 3){
                 $('#section-3 .box-container').css('opacity', 1)
@@ -113,11 +138,20 @@ $(document).ready(function(){
             if(index == 16){
                 $('#section-15 .popup').css('transform', 'translate(0, 100px)')
             }
+            if(index == 17){
+                $('#page-down').css('opacity', 1)
+            }
+            if(index == 18){
+                $('#comment-pannel').toggleClass('open')
+            }
 
         },
+        devtool: 'source-map',
         onLeave: function(index, nextIndex, direction){
             console.log(index, nextIndex, direction)
-            
+            if(index == 2 && direction == 'up'){
+                $('#page-down').css('opacity', 0)
+            }
             if(index == 2 && direction == 'down'){
                 ctx.clearRect(0, 0, 720, 1280)
                 $('#section-3 .yellow-back').css('height', '100vh')
@@ -196,7 +230,9 @@ $(document).ready(function(){
             if(index == 16){
                 $('#section-15 .popup').css('transform', 'translate(0, 0)')
             }
-           
+            if(index == 17 && direction == 'down'){
+                $('#page-down').css('opacity', 0)
+            }
             
         }
     });

@@ -7,7 +7,7 @@
     "serve": "webpack-dev-server",
     "clean": "rimraf ./dist",
     "build": "npm run clean && webpack",
-    "prod": "npm run clean && webpack -p",
+    "prod": "SET \"NODE_ENV=production\" && npm run clean && webpack -p",
     "deploy": "npm run prod && git subtree push --prefix dist origin gh-pages"
   },
   "repository": {
@@ -29,6 +29,7 @@
     "extract-text-webpack-plugin": "^2.1.2",
     "file-loader": "^0.11.2",
     "html-webpack-plugin": "^2.29.0",
+    "image-webpack-loader": "^3.3.1",
     "postcss-import": "^10.0.0",
     "postcss-loader": "^2.0.6",
     "rimraf": "^2.6.1",
@@ -38,9 +39,6 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
-    "animejs": "^2.0.2",
-    "fullpage.js": "^2.9.4",
-    "jquery": "^3.2.1",
-    "lazysizes": "^4.0.0-rc3"
+    
   }
 }

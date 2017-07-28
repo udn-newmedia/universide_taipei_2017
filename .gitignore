@@ -59,6 +59,8 @@ typings/
 
 # webpack
 
+./dist/*
+
 # video
 *.mp4
 

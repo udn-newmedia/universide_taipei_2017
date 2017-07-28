@@ -2,7 +2,7 @@ import '../style/style.css'
 import $ from 'jquery'
 import 'lazysizes'
 import 'fullpage.js'
-import imgBg from '../assets/bg.jpg'
+import imgBg from '../assets/bg.png'
 
 $(document).ready(function(){
 
@@ -24,6 +24,7 @@ $(document).ready(function(){
     const h = $(window).height()
 
     // $('.f-video-contain').css('height', 600*w/h + 'px')
+    $('video').css('width', w + 'px')
 
     $('#nav-icon').click(function(){
         console.log(123)
@@ -52,6 +53,8 @@ $(document).ready(function(){
     	afterLoad: function(anchorLink, index){
             bar_witdh = (index-1) / 17 * 100
             $('#indicator-bar').css('width', bar_witdh+'%')
+            $('.spec-bg').css('width', '0')
+            $('#section-' + index + ' .spec-bg').css('width', '100%')
             if(index == 1){
                 console.log(index)
                 $('#cover-title').css('opacity', 1)
@@ -232,6 +235,9 @@ $(document).ready(function(){
             }
             if(index == 17 && direction == 'down'){
                 $('#page-down').css('opacity', 0)
+            }
+            if(index == 18){
+                $('#msg').toggleClass('close')
             }
             
         }

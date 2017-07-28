@@ -7,7 +7,7 @@
     "serve": "webpack-dev-server",
     "clean": "rimraf ./dist",
     "build": "npm run clean && webpack",
-    "prod": "SET \"NODE_ENV=production\" && npm run clean && webpack -p",
+    "prod": "SET \"NODE_ENV=production\" && npm run clean && webpack -p --optimize-minimize",
     "deploy": "npm run prod && git subtree push --prefix dist origin gh-pages"
   },
   "repository": {
@@ -39,6 +39,8 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
-    
+    "fullpage.js": "^2.9.4",
+    "jquery": "^3.2.1",
+    "lazysizes": "^4.0.0-rc3"
   }
 }

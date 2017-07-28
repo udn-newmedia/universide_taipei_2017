@@ -64,27 +64,24 @@ module.exports = {
         new webpack.LoaderOptionsPlugin({
             debug: !prod_state,
         }),
-        new webpack.optimize.UglifyJsPlugin({
-        
-        }),
         new webpack.optimize.CommonsChunkPlugin({
-            name: "manifest",
-            minChunks: Infinity
-            // name: 'vendor',            
-            // minChunks: function(module) {
-            //     // this assumes your vendor imports exist in the node_modules directory
-            //     return module.context && module.context.indexOf('node_modules') !== -1;
-            // }            
+            // name: "manifest",
+            // minChunks: Infinity
+            name: 'vendor',            
+            Chunks: function(module) {
+                // this assumes your vendor imports exist in the node_modules directory
+                return module.context && module.context.indexOf('node_modules') !== -1;
+            }            
         }),
         new HtmlWebpackPlugin({
             template: 'src/index.html',
             filename: 'index.html',
-            chunks: ['manifest', 'bundle']
+            chunks: ['vendor', 'bundle']
         }),
         new HtmlWebpackPlugin({
             template: 'src/gymnastics.html',
             filename: 'gymnastics.html',
-            chunks: ['manifest', 'gymnastics']
+            chunks: ['vendor', 'gymnastics']
         }),
         new ExtractTextPlugin({
             filename: '[name].[contenthash].css'

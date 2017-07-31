@@ -2,6 +2,7 @@ var webpack = require('webpack')
 var path = require('path')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 prod_state = process.env.NODE_ENV==="production"
 
@@ -13,7 +14,7 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: '[name].[chunkhash].js'
+        filename: 'js/[name].[hash].js'
     },
     module: {
         rules:[
@@ -28,14 +29,15 @@ module.exports = {
                     use: [
                         { loader: 'css-loader', options: { importLoaders: 1 } },
                         'postcss-loader'
-                    ]
+                    ],
+                    publicPath: './',
                 }),
                 test: /\.css$/
             },
             {
                 test: /\.(jpg|png|gif|jpeg|svg)$/,
                 loaders: [
-                    'file-loader?limit=10000&hash=sha512&digest=hex&name=[hash].[ext]',
+                    'file-loader?limit=10000&hash=sha512&digest=hex&name=image/[hash].[ext]',
                     {
                         loader: 'image-webpack-loader',
                         query: {
@@ -61,12 +63,11 @@ module.exports = {
     },
     devtool: 'source-map',
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new webpack.LoaderOptionsPlugin({
             debug: !prod_state,
         }),
         new webpack.optimize.CommonsChunkPlugin({
-            // name: "manifest",
-            // minChunks: Infinity
             name: 'vendor',            
             Chunks: function(module) {
                 // this assumes your vendor imports exist in the node_modules directory

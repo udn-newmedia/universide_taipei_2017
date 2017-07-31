@@ -4,7 +4,23 @@ import 'lazysizes'
 import 'fullpage.js'
 import imgBg from '../assets/bg.png'
 
+import poster4 from '../assets/spin1.jpg'
+import poster5 from '../assets/spin2.jpg'
+import poster8 from '../assets/back.jpg'
+import poster10 from '../assets/under1.jpg'
+import poster11 from '../assets/under2.jpg'
+import poster13 from '../assets/backspin.jpg'
+import poster15 from '../assets/fist.jpg'
+
 $(document).ready(function(){
+
+    $('#movie-4').attr('poster', poster4)
+    $('#movie-5').attr('poster', poster5)
+    $('#movie-8').attr('poster', poster8)
+    $('#movie-10').attr('poster', poster10)
+    $('#movie-11').attr('poster', poster11)
+    $('#movie-13').attr('poster', poster13)
+    $('#movie-15').attr('poster', poster15)
 
     var bar_witdh = 0
 
@@ -53,8 +69,8 @@ $(document).ready(function(){
     	afterLoad: function(anchorLink, index){
             bar_witdh = (index-1) / 17 * 100
             $('#indicator-bar').css('width', bar_witdh+'%')
-            $('.spec-bg').css('width', '0')
-            $('#section-' + index + ' .spec-bg').css('width', '100%')
+            $('.under').css('border-bottom-color', 'transparent')
+            $('#section-' + index + ' .under').css('border-bottom-color', '#FFE400')
             if(index == 1){
                 console.log(index)
                 $('#cover-title').css('opacity', 1)

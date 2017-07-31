@@ -59,7 +59,7 @@ typings/
 
 # webpack
 
-./dist/*
+dist/*
 
 # video
 *.mp4

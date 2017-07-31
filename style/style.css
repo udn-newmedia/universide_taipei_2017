@@ -413,25 +413,8 @@ video{
 }
 
 .under{
-    position: relative;
-    font-size: inherit;
-}
-
-.spec-bg {
-    width: 0;
     transition: all 0.5s linear;
-    position: absolute;
-    display: inline-block;
-    height: 3px;
-    bottom: -3px;
-    left: 0;
-    z-index: -1;
-    background-color: #FFE400;
-}
-
-.word{
-    word-break: keep-all;
-    text-align: left;
+    border-bottom: 3px solid transparent;
 }
 
 @media screen and (max-width: 768px){

@@ -30,7 +30,7 @@ module.exports = {
                         { loader: 'css-loader', options: { importLoaders: 1 } },
                         'postcss-loader'
                     ],
-                    publicPath: './',
+                    publicPath: '../',
                 }),
                 test: /\.css$/
             },
@@ -85,7 +85,7 @@ module.exports = {
             chunks: ['vendor', 'gymnastics']
         }),
         new ExtractTextPlugin({
-            filename: '[name].[contenthash].css'
+            filename: 'css/[name].[contenthash].css'
         })
     ]
 }

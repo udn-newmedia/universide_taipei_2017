@@ -12,6 +12,71 @@ import poster11 from '../assets/under2.jpg'
 import poster13 from '../assets/backspin.jpg'
 import poster15 from '../assets/fist.jpg'
 
+import msgIcon from '../assets/msg.png'
+
+var progress = [null, null, null, null, null, null, null, null, null];
+var movie_progress = 0;
+
+function moviePlay(id){
+    $('#movie-' + id).get(0).play();
+    
+	if(progress[id - 1] == null){
+		progress[id - 1] = setInterval(function(){
+            var curTime = $('#movie-' + id).get(0).currentTime;
+            console.log(curTime)
+			var temp = curTime / $('#movie-' + id).get(0).duration * 100;
+			if(temp > 0.6){
+				$('.video-play[data-target="' + id + '"]').css('opacity', 0);
+			}
+			// if(Math.floor(curTime/5) > movie_progress){
+				// movie_progress = Math.floor(curTime/5)
+				// ga("send", {
+				// 	"hitType": "event",
+				// 	"eventCategory": "movie play",
+				// 	"eventAction": "play",
+				// 	"eventLabel": "[" + platform + "] [" + title + "] [movie " + id + " play " + (movie_progress*5) + "]"
+				// });
+			// }
+			
+			$('#progress-bar-' + id).css('width', temp + '%')
+		}, 600)
+	}
+}
+	
+function moviePause(id){
+	$('#movie-' + id).get(0).pause();
+	$('.video-play[data-target="' + id + '"]').css('opacity', 1);
+	if(progress[id-1]){
+		clearInterval(progress[id-1])
+		progress[id-1] = null;
+	}
+}
+
+function movieReplay(id){
+	$('#movie-' + id).get(0).currentTime = 0;
+	$('#movie-' + id).get(0).play();
+	$('.progress-bar').css('width', 0);
+	clearInterval(progress[id - 1])
+	progress[id - 1] = setInterval(function(){
+		var temp = $('#movie-' + id).get(0).currentTime / $('#movie-' + id).get(0).duration * 100
+		$('#progress-bar-' + id).css('width', temp + '%')
+	}, 600)
+}
+
+function movieVolume(id){
+	
+	if($('#movie-' + id).get(0).muted == true){
+		$('#movie-' + id).get(0).muted = false;
+		$('.volume[data-target="' + id + '"]').removeClass('fa-volume-off').addClass('fa-volume-up')
+		$('.volume-text[data-target="' + id + '"]').text('點按關聲音');
+	}
+	else{
+		$('#movie-' + id).get(0).muted = true;
+		$('.volume[data-target="' + id + '"]').removeClass('fa-volume-up').addClass('fa-volume-off')
+		$('.volume-text[data-target="' + id + '"]').text('點按開聲音');
+	}
+}
+
 $(document).ready(function(){
 
     $('#movie-4').attr('poster', poster4)
@@ -21,6 +86,8 @@ $(document).ready(function(){
     $('#movie-11').attr('poster', poster11)
     $('#movie-13').attr('poster', poster13)
     $('#movie-15').attr('poster', poster15)
+
+    $('#msgicon').attr('data-src', msgIcon)
 
     var bar_witdh = 0
 
@@ -67,6 +134,9 @@ $(document).ready(function(){
         navigation: false,    	
         scrollOverflow : true,
     	afterLoad: function(anchorLink, index){
+            setTimeout(function(){
+                $('#page-down .fa-angle-down').css('animation-name', 'btnmove')
+            }, 8000)
             bar_witdh = (index-1) / 17 * 100
             $('#indicator-bar').css('width', bar_witdh+'%')
             $('.under').css('border-bottom-color', 'transparent')
@@ -99,11 +169,11 @@ $(document).ready(function(){
             }
     		if(index == 4){
                 $('#section-3 .box-container').css('transform', 'translate(0, 50px)')
-                $('#movie-4').get(0).play()
+                moviePlay(4)
                 $('#section-5 .popup').css('transform', 'translate(0, 100px)')
     		}
     		if(index == 5){
-                $('#movie-5').get(0).play()
+                moviePlay(5)
                 $('#section-4 .popup').css('transform', 'translate(0, 100px)')
     		}
     		if(index == 6){
@@ -117,7 +187,7 @@ $(document).ready(function(){
             }
             if(index == 8){
                 $('#section-7 .box-container').css('transform', 'translate(0, 50px)')
-                $('#movie-8').get(0).play()
+                moviePlay(8)
                 $('#section-9 .box-container').css('transform', 'translate(0, 50px)')
             }
             if(index == 9){
@@ -128,11 +198,11 @@ $(document).ready(function(){
             }
             if(index == 10){
                 $('#section-9 .box-container').css('transform', 'translate(0, 50px)')
-                $('#movie-10').get(0).play()
+                moviePlay(10)
                 $('#section-11 .popup').css('transform', 'translate(0, 100px)')
             }
             if(index == 11){
-                $('#movie-11').get(0).play()
+                moviePlay(11)
                 $('#section-10 .popup').css('transform', 'translate(0, 100px)')
             }
             if(index == 12){
@@ -142,7 +212,7 @@ $(document).ready(function(){
             }
             if(index == 13){
                 $('#section-12 .box-container').css('transform', 'translate(0, 50px)')
-                $('#movie-13').get(0).play()
+                moviePlay(13)
                 $('#section-13 .box-container').css('transform', 'translate(0, 50px)')
             }
             if(index == 14){
@@ -152,7 +222,7 @@ $(document).ready(function(){
             }
             if(index == 15){
                 $('#section-14 .box-container').css('transform', 'translate(0, 50px)')
-                $('#movie-15').get(0).play()
+                moviePlay(15)
             }
             if(index == 16){
                 $('#section-15 .popup').css('transform', 'translate(0, 100px)')
@@ -168,8 +238,9 @@ $(document).ready(function(){
         devtool: 'source-map',
         onLeave: function(index, nextIndex, direction){
             console.log(index, nextIndex, direction)
+            $('#page-down .fa-angle-down').css('animation-name', '')
             if(index == 2 && direction == 'up'){
-                $('#page-down').css('opacity', 0)
+                // $('#page-down').css('opacity', 0)
             }
             if(index == 2 && direction == 'down'){
                 ctx.clearRect(0, 0, 720, 1280)
@@ -184,9 +255,11 @@ $(document).ready(function(){
                 $('#section-4 .popup').css('transform', 'translate(0, 0)')
             }
             if(index == 4){
+                moviePause(4)
                 $('#section-5 .popup').css('transform', 'translate(0, 0)')
             }
             if(index == 5){
+                moviePause(5)
                 $('#section-4 .popup').css('transform', 'translate(0, 0)')
             }
             if(index == 6){
@@ -206,6 +279,7 @@ $(document).ready(function(){
                 $('#section-9 .yellow-back').css('height', '100vh')
             }
             if(index == 8){
+                moviePause(8)
                 $('#section-8 .popup').css('transform', 'translate(0, 0)')
             }
             if(index == 9 && direction == 'up'){
@@ -217,12 +291,14 @@ $(document).ready(function(){
                 $('#section-10 .popup').css('transform', 'translate(0, 0)')
             }
             if(index == 10){
+                moviePause(10)
                 $('#section-11 .popup').css('transform', 'translate(0, 0)')
             }
             if(index == 11 && direction == 'down'){
                 $('#section-12 .yellow-back').css('height', '100vh')
             }
             if(index == 11){
+                moviePause(11)
                 $('#section-10 .popup').css('transform', 'translate(0, 0)')
             }
             if(index == 12 && direction == 'up'){
@@ -234,6 +310,7 @@ $(document).ready(function(){
                 $('#section-13 .popup').css('transform', 'translate(0, 0)')
             }
             if(index == 13){
+                moviePause(13)
                 $('#section-14 .yellow-back').css('height', '100vh')
             }
             if(index == 14 && direction == 'up'){
@@ -244,7 +321,7 @@ $(document).ready(function(){
                 $('#section-15 .popup').css('transform', 'translate(0, 0)')
             }
             if(index == 15){
-
+                moviePause(15)
             }
             if(index == 16){
                 $('#section-15 .popup').css('transform', 'translate(0, 0)')
